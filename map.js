@@ -7,15 +7,28 @@ var myOptions = {center: new google.maps.LatLng(42.2814, -83.7483),
 };
 var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
  
-var coordinates = [[42.290895, -83.705983],[42.267687, -83.714981],[42.293469, -83.780727],[42.267243, -83.750257],
-                [42.278230, -83.759012]];
-for(var i=0; i<length.coordinates; i++) {
-  var lat = coordinates[i,0];
-  var lon = coordinates[0,i];
+var coordinates = [{latitude:42.290895, longitude:-83.705983},
+	{latitude:42.267687, longitude:-83.714981},
+	{latitude:42.293469, longitude:-83.780727},
+	{latitude:42.267243, longitude:-83.750257},
+	{latitude:42.278230, longitude:-83.759012}
+	];
+
+for(var i=0; i<coordinates.length; i++) {
+  var lat = coordinates[i].latitude;
+  var lon = coordinates[i].longitude;
   marker = new google.maps.Marker({
     position: new google.maps.LatLng(lat, lon),
     map: map
   });
 }
+
+// BackUp
+// var lat = 42.267243;
+// var lon = -83.750257;
+//   marker = new google.maps.Marker({
+//     position: new google.maps.LatLng(lat, lon),
+//     map: map
+// });
  
 }
