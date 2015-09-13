@@ -196,12 +196,12 @@ var maxRadius = 1500;
 
 function drawRadar()
  {
-  for (var i=0; i<circleArr.length; i++)
+  for (var i=0; i < circleArr.length; i++)
   {
 
     var radius = circleArr[i].radius;
 
-    if (radius <= maxRadius) {
+    if (radius < maxRadius) {
       //create null circle
       radius += 50;
     } else {
@@ -209,6 +209,7 @@ function drawRadar()
     }
 
     circleArr[i].setMap(null);
+    circleArr[i] = null;
     circleArr[i] = new google.maps.Circle({
       strokeColor: 'yellow',
       strokeOpacity: 0.8,
