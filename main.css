@@ -21,7 +21,6 @@ html, body, #map-canvas {
 	position: absolute;
 	z-index: 7;
 	background-color: #28675E;
-	padding-bottom: 17px;
 	width: 100%;
 }
 
@@ -37,15 +36,20 @@ html, body, #map-canvas {
 	-1px -1px 0 #000000, 
 	1px -1px 0 #000000, 
 	-1px 1px 0 #000000;*/
-	text-align: center;
+	text-align: left;
 	color: #FFFFFF;
 	position: absolute;
 	z-index: 7;
-	background-color: #28675E;
-	width: 98.8%;
-	top: 4px;
-	right: 4px;	
-	height: 150px;
+	background-color: rgba(40, 103, 94, 0.6);
+	width: 100%;
+	top: 0px;
+	height: 60px;
+}
+
+.heading h1 {
+	font-size: 25px;
+	padding-left: 25px;
+	padding-top: 0px;
 }
 
 /*.logo {

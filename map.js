@@ -154,7 +154,7 @@ $(document).ready(function() {
 
 });
 
-setInterval(drawRadar, 500);
+//setInterval(drawRadar, 5000);
 
 function initialize(data) 
 {
@@ -219,7 +219,7 @@ function drawRadar()
       map: map,
       center: {lat: 42.2814, lng: 83.7483},
       radius: radius
-    });
+    }); 
 //  }
 }
 }
