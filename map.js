@@ -87,7 +87,7 @@ $(document).ready(function() {
       },{
         featureType: 'administrative.locality',
         elementType: 'labels',
-        stylers: [ { visibility: "off" }]
+        stylers: [ { visibility: "on" }]
       },{
         featureType: 'administrative.land_parcel',
         elementType: 'labels',
@@ -129,7 +129,7 @@ $(document).ready(function() {
     contentType: "application/json",
     success: function(result){
       //console.log(result);
-      initialize(result.arr);
+      // initialize(result.arr);
     },
     error: function(xhr, textStatus, errThrown){
       console.log(errThrown);
@@ -154,21 +154,22 @@ $(document).ready(function() {
 
 });
 
-//setInterval(drawRadar, 5000);
-
-function initialize(data) 
-{
-	var coordinates = data;
-	//plot flags
-	for(var i=0; i<coordinates.length; i++) {
-	  var lat = coordinates[i].lat;
-	  var lon = coordinates[i].lon;
-	  marker = new google.maps.Marker({
-	    position: new google.maps.LatLng(lat, lon),
-	    map: map
-	  });
-	}
-}
+// function initialize(data) 
+// {
+// 	var coordinates = data;
+//   console.log
+    
+// 	//plot flags
+// 	for(var i=0; i<coordinates.length; i++) {
+// 	  var lat = coordinates[i].lat;
+// 	  var lon = coordinates[i].lon;
+//     console.log(lat);
+// 	  marker = new google.maps.Marker({
+// 	    position: new google.maps.LatLng(lat, lon),
+// 	    map: map
+// 	  });
+// 	}
+// }
 
 function drawCircles(data)
 {
@@ -190,36 +191,4 @@ function drawCircles(data)
 		});
     circleArr.push(circle);
 	}
-}
-
-var maxRadius = 1500;
-
-function drawRadar()
- {
-  for (var i=0; i < circleArr.length; i++)
-  {
-
-    var radius = circleArr[i].radius;
-
-    if (radius < maxRadius) {
-      //create null circle
-      radius += 50;
-    } else {
-      i = 0;
-    }
-
-    circleArr[i].setMap(null);
-    circleArr[i] = null;
-    circleArr[i] = new google.maps.Circle({
-      strokeColor: 'yellow',
-      strokeOpacity: 0.8,
-      strokeWeight: 1.5,
-      fillColor: 'yellow',
-      fillOpacity: 0.6,
-      map: map,
-      center: {lat: 42.2814, lng: 83.7483},
-      radius: radius
-    }); 
-//  }
-}
 }
