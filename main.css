@@ -1,0 +1,56 @@
+/*var blue = '#78B7AE';
+var orange = '#FB621F';
+var yellow = '#FEF200';
+var offblack = '#1D1D1D';
+var darkYellow = 'CCC000';
+var black = '#000000';
+var white = '#FFFFFF';*/
+
+html, body, #map-canvas {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.subtleties {
+	font-family: 'Hind', sans-serif;	
+	font-weight: 100;
+	font-size: 60px;
+	text-align: center;
+	color: #FB621F;
+	position: absolute;
+	z-index: 7;
+	background-color: #28675E;
+	padding-bottom: 17px;
+	width: 100%;
+}
+
+.heading {
+	font-family: 'Hind', sans-serif;
+	font-weight: 500;
+	font-size: 60px;
+/*	text-shadow: 2px 0 0 #000000, 
+	-2px 0 0 #000000, 
+	0 2px 0 #000000, 
+	0 -2px 0 #000000, 
+	1px 1px #000000, 
+	-1px -1px 0 #000000, 
+	1px -1px 0 #000000, 
+	-1px 1px 0 #000000;*/
+	text-align: center;
+	color: #FFFFFF;
+	position: absolute;
+	z-index: 7;
+	background-color: #28675E;
+	width: 98.8%;
+	border: 3px solid #C6C6C6;
+	border-radius: 20px;
+	top: 4px;
+	right: 4px;
+}
+
+/*.logo {
+	left: 90%;
+  content: url(images/logo.png);
+  background-color: transparent;
+}*/

@@ -1,11 +1,122 @@
 var map;
+var blue = '#78B7AE';
+var orange = '#FB621F';
+var yellow = '#FEF200';
+var offblack = '#1D1D1D';
+var darkYellow = 'CCC000';
+var black = '#000000';
+var white = '#FFFFFF';
 $(document).ready(function() {
+	var mapTypeId = "style_uno";
 	//load map
 	var myOptions = {center: new google.maps.LatLng(42.2814, -83.7483),
-	 zoom: 12,
-	 mapTypeId: google.maps.MapTypeId.ROADMAP
+		 zoom: 12,
+		 mapTypeControl: false,
+		 zoomControl: false,
+		 streetViewControl: false,
+		 panControl: false,
+		 mapTypeControlOptions: {
+	     	mapTypeIds: [google.maps.MapTypeId.ROADMAP, mapTypeId]
+	     },
+	     mapTypeId: mapTypeId
 	};
-	map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+
+  var mapStyles = [
+      {
+        featureType: 'water',
+        stylers: [ 
+          { color: blue }]
+      },{
+        featureType: 'water',
+        elementType: 'labels.text',
+        stylers: [ { visibility: "off" }]
+      },{
+        featureType: 'road',
+        elementType: 'labels.text',
+        stylers: [ { visibility: "on" }]
+      },{
+        featureType: 'road',
+        elementType: 'labels.icon',
+        stylers: [ { visibility: "off" }]
+      },{
+      	featureType: 'road',
+        elementType: 'geometry',
+        stylers: [ { color: offblack }]
+      },{
+        featureType: 'road.highway',
+        elementType: 'geometry',
+        stylers: [ { color: offblack }]
+      },{
+        featureType: 'poi',
+        elementType: 'labels',
+        stylers: [ { visibility: "on" }]
+      },{
+        featureType: 'poi',
+        elementType: 'geometry',
+        stylers: [ {color: darkYellow}]
+      },{
+        featureType: 'poi.park',
+        stylers: [ { visibility: "on" }]
+      },{
+        featureType: 'poi.government',
+        stylers: [ { visibility: "on" }]
+      },{
+        featureType: 'poi.attraction',
+        stylers: [ { visibility: "on" }]
+      },{
+        featureType: 'poi.business',
+        stylers: [ { visibility: "on" }]
+      },{
+        featureType: 'landscape',
+        elementType: 'geometry',
+        stylers: [ {color: darkYellow}]
+      },{
+        featureType: 'administrative',
+        elementType: 'labels.icon',
+        stylers: [ { visibility: "off" }]
+      },{
+        featureType: 'administrative.country',
+        elementType: 'labels',
+        stylers: [ { visibility: "off" }]
+      },{
+        featureType: 'administrative.country',
+        elementType: 'geometry.stroke',
+        stylers: [ { weight: "0.5" }, { color: offblack }]
+      },{
+        featureType: 'administrative.locality',
+        elementType: 'labels',
+        stylers: [ { visibility: "on" }]
+      },{
+        featureType: 'administrative.land_parcel',
+        elementType: 'labels',
+        stylers: [ { visibility: "off" }]
+      },{
+        featureType: 'administrative.neighborhood',
+        elementType: 'labels',
+        stylers: [ { visibility: "off" }]
+      },{
+        featureType: 'administrative.province',
+        elementType: 'labels.text.fill',
+        stylers: [ { color: orange }]
+      }
+  ];
+
+  map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+
+  var styledMapOptions = {
+  name: 'Style Uno'
+  };
+
+  var customMapType = new google.maps.StyledMapType(mapStyles, styledMapOptions);
+
+  map.mapTypes.set(mapTypeId, customMapType);
+  // infoWindow, markerOptions
+  var renderOpt = {
+	  draggable: false,
+	  map: map,
+	  suppressMarkers: true,
+	  preserveViewport: true
+  }
 
 	//matt's shit for misses
 	var url = 'http://battletrip.herokuapp.com/misses';
@@ -51,7 +162,7 @@ function initialize(data)
 	    position: new google.maps.LatLng(lat, lon),
 	    map: map
 	  });
-	}	 
+	}
 }
 
 function drawCircles(data)
@@ -63,14 +174,21 @@ function drawCircles(data)
 	 	var lon = coordinates[i].lon;
 	 	var radius = coordinates[i].radius;
 		var circle = new google.maps.Circle({
-			strokeColor: '#FF0000',
-		    strokeOpacity: 0.5,
+			strokeColor: 'orange',
+		    strokeOpacity: 0.8,
 		    strokeWeight: 1.5,
-		    fillColor: '#FF0000',
-		    fillOpacity: 0.35,
+		    fillColor: 'orange',
+		    fillOpacity: 0.6,
 	    	map: map,
 	    	center: {lat: lat, lng: lon},
 	    	radius: radius
 		});
 	}
+}
+
+function addText()
+{
+	var title = 'BattleTrips';
+
+	console.log(title);
 }
