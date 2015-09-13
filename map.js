@@ -6,20 +6,22 @@ var offblack = '#1D1D1D';
 var darkYellow = 'CCC000';
 var black = '#000000';
 var white = '#FFFFFF';
+var circleArr = [];
+
 $(document).ready(function() {
-	var mapTypeId = "style_uno";
-	//load map
-	var myOptions = {center: new google.maps.LatLng(42.2814, -83.7483),
-		 zoom: 12,
-		 mapTypeControl: false,
-		 zoomControl: false,
-		 streetViewControl: false,
-		 panControl: false,
-		 mapTypeControlOptions: {
-	     	mapTypeIds: [google.maps.MapTypeId.ROADMAP, mapTypeId]
-	     },
-	     mapTypeId: mapTypeId
-	};
+  var mapTypeId = "style_uno";
+  //load map
+  var myOptions = {center: new google.maps.LatLng(42.2814, -83.7483),
+     zoom: 12,
+     mapTypeControl: false,
+     zoomControl: false,
+     streetViewControl: false,
+     panControl: false,
+     mapTypeControlOptions: {
+        mapTypeIds: [google.maps.MapTypeId.ROADMAP, mapTypeId]
+       },
+       mapTypeId: mapTypeId
+  };
 
   var mapStyles = [
       {
@@ -39,7 +41,7 @@ $(document).ready(function() {
         elementType: 'labels.icon',
         stylers: [ { visibility: "off" }]
       },{
-      	featureType: 'road',
+        featureType: 'road',
         elementType: 'geometry',
         stylers: [ { color: offblack }]
       },{
@@ -85,7 +87,7 @@ $(document).ready(function() {
       },{
         featureType: 'administrative.locality',
         elementType: 'labels',
-        stylers: [ { visibility: "on" }]
+        stylers: [ { visibility: "off" }]
       },{
         featureType: 'administrative.land_parcel',
         elementType: 'labels',
@@ -112,44 +114,48 @@ $(document).ready(function() {
   map.mapTypes.set(mapTypeId, customMapType);
   // infoWindow, markerOptions
   var renderOpt = {
-	  draggable: false,
-	  map: map,
-	  suppressMarkers: true,
-	  preserveViewport: true
+    draggable: false,
+    map: map,
+    suppressMarkers: true,
+    preserveViewport: true
   }
 
-	//matt's shit for misses
-	var url = 'http://battletrip.herokuapp.com/misses';
-	$.ajax({
-	  type: "GET",
-	  url: url,
-	  dataType: "jsonp",
-	  contentType: "application/json",
-	  success: function(result){
-	  	//console.log(result);
-	  	initialize(result.arr);
-	  },
-	  error: function(xhr, textStatus, errThrown){
-	  	console.log(errThrown);
-	  }
-	});
+  //matt's shit for misses
+  var url = 'http://battletrip.herokuapp.com/misses';
+  $.ajax({
+    type: "GET",
+    url: url,
+    dataType: "jsonp",
+    contentType: "application/json",
+    success: function(result){
+      //console.log(result);
+      initialize(result.arr);
+    },
+    error: function(xhr, textStatus, errThrown){
+      console.log(errThrown);
+    }
+  });
 
-	//shit for circles
-	var url = 'http://battletrip.herokuapp.com/ships';
-	$.ajax({
-	  type: "GET",
-	  url: url,
-	  dataType: "jsonp",
-	  contentType: "application/json",
-	  success: function(result){
-	  	//console.log(result);
-	  	drawCircles(result.arr);
-	  },
-	  error: function(xhr, textStatus, errThrown){
-	  	console.log(errThrown);
-	  }
-	});
+  //shit for circles
+  var url = 'http://battletrip.herokuapp.com/ships';
+  $.ajax({
+    type: "GET",
+    url: url,
+    dataType: "jsonp",
+    contentType: "application/json",
+    success: function(result){
+      //console.log(result);
+      drawCircles(result.arr);
+    },
+    error: function(xhr, textStatus, errThrown){
+      console.log(errThrown);
+    }
+  });
+
+  // setInterval(function() {drawRadar()}, 50);
 });
+
+
 
 function initialize(data) 
 {
@@ -183,6 +189,7 @@ function drawCircles(data)
 	    	center: {lat: lat, lng: lon},
 	    	radius: radius
 		});
+    circleArr.push(circle);
 	}
 }
 
@@ -192,3 +199,22 @@ function addText()
 
 	console.log(title);
 }
+
+// function drawRadar()
+// {
+//   var circleArr = [];
+//   for (var i=0; i<500; i++)
+//   {
+//     circleArr[i] =new google.maps.Circle(null)
+//     circleArr[i] = new google.maps.Circle({
+//       strokeColor: 'orange',
+//       strokeOpacity: 0.8,
+//       strokeWeight: 1.5,
+//       fillColor: 'orange',
+//       fillOpacity: 0.6,
+//       map: map,
+//       center: {lat: 42.2814, lng: 83.7483},
+//       radius: i
+//     });
+//   }
+// }
