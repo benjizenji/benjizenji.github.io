@@ -7,17 +7,17 @@ $.getJSON('https://battletrip.herokuapp.com/misses', function(data) {
 	initialize(data.arr);
 }); */
 
-var url = 'https://battletrip.herokuapp.com/misses';
+var url = 'http://battletrip.herokuapp.com/misses';
 $.ajax({
   type: "GET",
   url: url,
-  dataType: "json",
+  dataType: "jsonp",
   contentType: "application/json",
   success: function(result){
   	//console.log(result);
-  	initialize(data.arr);
+  	initialize(result.arr);
   },
-  error: function(xhr, textStatus, errThrown)
+  error: function(xhr, textStatus, errThrown){
   	console.log(errThrown);
   }
 });
