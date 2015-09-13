@@ -2,8 +2,24 @@ $(document).ready(function() {
 
 });
 
+/*
 $.getJSON('https://battletrip.herokuapp.com/misses', function(data) {
 	initialize(data.arr);
+}); */
+
+var url = 'https://battletrip.herokuapp.com/misses';
+$.ajax({
+  type: "GET",
+  url: url,
+  dataType: "json",
+  contentType: "application/json",
+  success: function(result){
+  	//console.log(result);
+  	initialize(data.arr);
+  },
+  error: function(xhr, textStatus, errThrown)
+  	console.log(errThrown);
+  }
 });
 
 function initialize(data) 
