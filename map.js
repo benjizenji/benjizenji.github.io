@@ -152,10 +152,9 @@ $(document).ready(function() {
     }
   });
 
-  // setInterval(function() {drawRadar()}, 50);
 });
 
-
+setInterval(drawRadar, 500);
 
 function initialize(data) 
 {
@@ -193,28 +192,33 @@ function drawCircles(data)
 	}
 }
 
-function addText()
-{
-	var title = 'BattleTrips';
+var maxRadius = 1500;
 
-	console.log(title);
+function drawRadar()
+ {
+  for (var i=0; i<circleArr.length; i++)
+  {
+
+    var radius = circleArr[i].radius;
+
+    if (radius <= maxRadius) {
+      //create null circle
+      radius += 50;
+    } else {
+      i = 0;
+    }
+
+    circleArr[i].setMap(null);
+    circleArr[i] = new google.maps.Circle({
+      strokeColor: 'yellow',
+      strokeOpacity: 0.8,
+      strokeWeight: 1.5,
+      fillColor: 'yellow',
+      fillOpacity: 0.6,
+      map: map,
+      center: {lat: 42.2814, lng: 83.7483},
+      radius: radius
+    });
+//  }
 }
-
-// function drawRadar()
-// {
-//   var circleArr = [];
-//   for (var i=0; i<500; i++)
-//   {
-//     circleArr[i] =new google.maps.Circle(null)
-//     circleArr[i] = new google.maps.Circle({
-//       strokeColor: 'orange',
-//       strokeOpacity: 0.8,
-//       strokeWeight: 1.5,
-//       fillColor: 'orange',
-//       fillOpacity: 0.6,
-//       map: map,
-//       center: {lat: 42.2814, lng: 83.7483},
-//       radius: i
-//     });
-//   }
-// }
+}
