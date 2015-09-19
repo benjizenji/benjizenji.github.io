@@ -29,7 +29,6 @@ html, body, #map-canvas {
 	position: absolute;
 	z-index: 7;
 	background-color: rgba(40, 103, 94, 0.6);
-	width: 100%;
 	top: 0px;
 	padding: 10px;
 }
@@ -86,3 +85,4 @@ html, body, #map-canvas {
 	font-weight: 600;
 	padding-top: 0px;
 }
+
