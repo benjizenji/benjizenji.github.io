@@ -11,7 +11,7 @@ var circleArr = [];
 $(document).ready(function() {
   var mapTypeId = "style_uno";
   //load map
-  var myOptions = {center: new google.maps.LatLng(42.2814, -83.7483),
+  var myOptions = {center: new google.maps.LatLng(30.4550, -84.2533),
      zoom: 12,
      mapTypeControl: false,
      zoomControl: false,

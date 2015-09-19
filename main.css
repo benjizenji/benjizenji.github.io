@@ -12,22 +12,10 @@ html, body, #map-canvas {
   padding: 0px;
 }
 
-.subtleties {
-	font-family: 'Hind', sans-serif;	
-	font-weight: 100;
-	font-size: 60px;
-	text-align: center;
-	color: #FB621F;
-	position: absolute;
-	z-index: 7;
-	background-color: #28675E;
-	width: 100%;
-}
-
 .heading {
 	font-family: 'Hind', sans-serif;
-	font-weight: 500;
-	font-size: 60px;
+	font-weight: 100;
+	font-size: 20px;
 /*	text-shadow: 2px 0 0 #000000, 
 	-2px 0 0 #000000, 
 	0 2px 0 #000000, 
@@ -46,14 +34,55 @@ html, body, #map-canvas {
 	height: 60px;
 }
 
+#icons {
+	width: 100%;
+	float: left;
+	margin: 0;
+	padding-top: 0px;
+	padding-left: 25px;
+	list-style: none;
+}
+
+#icons li {
+	float: left;
+}
+
+#icons li a {
+	text-decoration: none;
+	color: #FB621F;
+	border: 5px;
+}
+/*
+.icons {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+.icons li {
+	top: 0;
+	bottom: 0;
+	float: left;
+	position: absolute;
+}
+
+.download {
+	padding-top: 15px;
+}*/
+
 .heading h1 {
-	font-size: 25px;
+	margin-top: 0;
+	font-size: 40px;
+	font-weight: 500;
 	padding-left: 25px;
 	padding-top: 0px;
 }
 
-/*.logo {
-	left: 90%;
-  content: url(images/logo.png);
-  background-color: transparent;
-}*/
+.heading h2 {
+	margin-top: 0;
+	margin-left: 80%;
+	font-size: 20px;
+	font-weight: 600;
+	padding-top: 0px;
+}
