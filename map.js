@@ -213,5 +213,5 @@ window.onresize = function(event) {
   var header = document.getElementById("header").offsetWidth = headWidth + "px";
   var killheader = document.getElementById("header");
   killheader.style.width = header;
-  console.log(killheader);
+  console.log(docWidth, headWidth, header);
 }
