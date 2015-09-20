@@ -210,8 +210,8 @@ function drawCircles(data)
 window.onresize = function(event) {
   var docWidth = $(document).width();
   var headWidth = docWidth - 20;
-
+  var header = document.getElementById("header").offsetWidth = headWidth + "px";
   var killheader = document.getElementById("header");
-  killheader.style.width = headWidth + "px";
+  killheader.style.width = header;
   console.log(killheader);
 }
