@@ -16,73 +16,17 @@ html, body, #map-canvas {
 	font-family: 'Hind', sans-serif;
 	font-weight: 100;
 	font-size: 39px;
-/*	text-shadow: 2px 0 0 #000000, 
-	-2px 0 0 #000000, 
-	0 2px 0 #000000, 
-	0 -2px 0 #000000, 
-	1px 1px #000000, 
-	-1px -1px 0 #000000, 
-	1px -1px 0 #000000, 
-	-1px 1px 0 #000000;*/
 	text-align: left;
 	color: #FFFFFF;
 	position: absolute;
+	top: 0px;
 	z-index: 7;
 	background-color: rgba(40, 103, 94, 0.6);
-	top: 0px;
 	padding: 10px;
 }
 
-#icons {
-	width: 100%;
-	float: left;
-	margin: 0;
-	padding-top: 0px;
-	padding-left: 25px;
-	list-style: none;
-}
-
-#icons li {
-	float: left;
-}
-
-#icons li a {
+#download {
 	text-decoration: none;
-	color: #FB621F;
-	border: 5px;
+	color: #FFFFFF;
+	float: right;
 }
-/*
-.icons {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	position: relative;
-}
-
-.icons li {
-	top: 0;
-	bottom: 0;
-	float: left;
-	position: absolute;
-}
-
-.download {
-	padding-top: 15px;
-}*/
-
-.heading h1 {
-	margin-top: 0;
-	font-size: 40px;
-	font-weight: 500;
-	padding-left: 25px;
-	padding-top: 0px;
-}
-
-.heading h2 {
-	margin-top: 0;
-	margin-left: 80%;
-	font-size: 20px;
-	font-weight: 600;
-	padding-top: 0px;
-}
-

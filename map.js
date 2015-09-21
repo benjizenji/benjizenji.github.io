@@ -207,10 +207,19 @@ function drawCircles(data)
 	}
 }
 
-window.onresize = function(event) {
+//set header width
+function headersize() {
   var docWidth = $(window).width();
   var headWidth = docWidth - 20;
+  
   var killheader = document.getElementById("header");
   killheader.style.width = headWidth + "px";
-  console.log(docWidth, headWidth, header);
+  // console.log(docWidth, headWidth, header);
+}
+
+headersize();
+
+//set header to width of window on resize
+window.onresize = function(event) {
+  headersize();
 }
