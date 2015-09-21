@@ -7,25 +7,28 @@ var darkYellow = 'CCC000';
 var black = '#000000';
 var white = '#FFFFFF';
 var circleArr = [];
+var change;
 
-$(function() {
-  var mapOptions = {
-    zoom: 8,
-    center: new google.maps.LatLng(-34.397, 150.644)
-  };
-  // var map = new google.maps.Map($("#map_canvas")[0], mapOptions);
+// $(function() {
+//   var mapOptions = {
+//     zoom: 8,
+//     center: new google.maps.LatLng(-34.397, 150.644)
+//   };
+//   // var map = new google.maps.Map($("#map_canvas")[0], mapOptions);
 
-  // // listen for the window resize event & trigger Google Maps to update too
-  // $(window).resize(function() {
-  //   // (the 'map' here is the result of the created 'var map = ...' above)
-  //   google.maps.event.trigger(map, "resize");
-  // });
-});
+//   // // listen for the window resize event & trigger Google Maps to update too
+//   // $(window).resize(function() {
+//   //   // (the 'map' here is the result of the created 'var map = ...' above)
+//   //   google.maps.event.trigger(map, "resize");
+//   // });
+// });
 
 $(document).ready(function() {
   var mapTypeId = "style_uno";
+  change=1;//this is a test variable for timing of change being globally recognized
+
   //load map
-  var myOptions = {center: new google.maps.LatLng(30.4550, -84.2533),
+  var myOptions = {center: new google.maps.LatLng(30.4390, -84.2653),
      zoom: 12,
      mapTypeControl: false,
      zoomControl: false,
@@ -166,7 +169,12 @@ $(document).ready(function() {
     }
   });
 
+  //server calls for scoreboard
 });
+
+setTimeout(function(){
+  console.log(change);
+}, 2000);// here, change is globally recognized after 2 seconds
 
 // function initialize(data) 
 // {
@@ -199,19 +207,31 @@ function drawCircles(data)
 		    strokeWeight: 1.5,
 		    fillColor: 'orange',
 		    fillOpacity: 0.6,
-	    	map: map,
+	    	map: map, 
 	    	center: {lat: lat, lng: lon},
 	    	radius: radius
-		});
+		  });
     circleArr.push(circle);
 	}
+  //fake circle
+  var circle = new google.maps.Circle({
+      strokeColor: 'orange',
+        strokeOpacity: 0.8,
+        strokeWeight: 1.5,
+        fillColor: 'orange',
+        fillOpacity: 0.6,
+        map: map,
+        center: {lat: 30.4590, lng: -84.2643},
+        radius: 1500
+    });
+  circleArr.push(circle);
 }
 
 //set header width
 function headersize() {
   var docWidth = $(window).width();
   var headWidth = docWidth - 20;
-  
+
   var killheader = document.getElementById("header");
   killheader.style.width = headWidth + "px";
   // console.log(docWidth, headWidth, header);
@@ -222,4 +242,5 @@ headersize();
 //set header to width of window on resize
 window.onresize = function(event) {
   headersize();
+  // changescoreboard();
 }

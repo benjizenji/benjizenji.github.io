@@ -14,8 +14,6 @@ html, body, #map-canvas {
 
 .heading {
 	font-family: 'Hind', sans-serif;
-	font-weight: 100;
-	font-size: 39px;
 	text-align: left;
 	color: #FFFFFF;
 	position: absolute;
@@ -29,4 +27,23 @@ html, body, #map-canvas {
 	text-decoration: none;
 	color: #FFFFFF;
 	float: right;
+}
+
+#download:hover {
+	text-decoration: underline;
+	color: rgba(42, 42, 42, 1);
+}
+
+@media (min-width:525px) {
+	.heading {
+		font-weight: 100;
+		font-size: 39px;
+	}
+}
+
+@media (max-width:524px) {
+	.heading {
+		font-weight: 25;
+		font-size: 18px;
+	}
 }
