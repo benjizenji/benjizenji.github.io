@@ -234,7 +234,7 @@ function headersize() {
 
   var killheader = document.getElementById("header");
   killheader.style.width = headWidth + "px";
-  // console.log(docWidth, headWidth, header);
+  //console.log(docWidth, headWidth, header);
 }
 
 headersize();
@@ -242,5 +242,18 @@ headersize();
 //set header to width of window on resize
 window.onresize = function(event) {
   headersize();
-  // changescoreboard();
+  //changescoreboard();
 }
+
+function scoreboardsize() {
+  var docHeight = $(window).height();
+  var header = document.getElementById('header');
+  var headHeight;
+  headHeight = header.height;
+  console.log(docHeight, headHeight, header);
+  //var scoreboard = document.getElementById('scoreboard');
+  //var scoreHeight = docHeight - headHeight;
+  //scoreboard.style.height = scoreHeight;
+}
+
+scoreboardsize();

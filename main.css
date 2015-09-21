@@ -34,6 +34,17 @@ html, body, #map-canvas {
 	color: rgba(42, 42, 42, 1);
 }
 
+.scoreboard {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	top: 82px;
+	height: inherit; /*make this entire page minus header height*/
+	width: 25%;
+	z-index: 8;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
 @media (min-width:525px) {
 	.heading {
 		font-weight: 100;
@@ -45,5 +56,8 @@ html, body, #map-canvas {
 	.heading {
 		font-weight: 25;
 		font-size: 18px;
+	}
+	.scoreboard {
+		top: 49px;
 	}
 }
