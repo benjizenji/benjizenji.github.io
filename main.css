@@ -4,9 +4,10 @@ var yellow = '#FEF200';
 var offblack = '#1D1D1D';
 var darkYellow = 'CCC000';
 var black = '#000000';
-var white = '#FFFFFF';*/
+var white = '#FFFFFF';
+rgba(40, 103, 94, 1)*/
 
-html, body, #map-canvas {
+html, body, #map_canvas {
   height: 100%;
   margin: 0px;
   padding: 0px;
@@ -19,7 +20,7 @@ html, body, #map-canvas {
 	position: absolute;
 	top: 0px;
 	z-index: 7;
-	background-color: rgba(40, 103, 94, 0.6);
+	background-color: rgba(40, 103, 94, 0.9);
 	padding: 10px;
 }
 
@@ -31,24 +32,89 @@ html, body, #map-canvas {
 
 #download:hover {
 	text-decoration: underline;
-	color: rgba(42, 42, 42, 1);
+	color: #FB621F;
+}
+
+#about {
+	font-size: 15px;
+	font-weight: 500;
+	position: relative;
+	padding: 10px;
+	padding-bottom: 0px;
+	border-top: 2px solid rgba(255, 255, 255, 0.5);
+	/*color: #FB621F;*/
 }
 
 .scoreboard {
 	position: absolute;
 	right: 0px;
 	bottom: 0px;
-	top: 82px;
-	height: inherit; /*make this entire page minus header height*/
+	top: 73px;
+	height: inherit - 131px; /*fix this*/
 	width: 25%;
 	z-index: 8;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.9);
+	overflow: scroll;
+	border-top: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+.scorebox {
+	width: 100%;
+	height: 95px;
+	border-bottom: 2px;
+	border-bottom-style: groove;
+	border-bottom-color: rgba(255, 255, 255, 0.5);
+	z-index: 9;
+	position: relative;
+}
+
+#scoretitle {
+	border-bottom: 2px groove rgba(255, 255, 255, 0.5);
+	font-family: 'Hind', sans-serif;
+	color: #FFFFFF;
+	font-size: 30px;
+	text-align: center;
+}
+
+.scorename {
+	font-family: 'Hind', sans-serif;
+	color: #FFFFFF;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 1.5em;
+}
+
+.scorepoints {
+	font-family: 'Hind', sans-serif;
+	color: #FFFFFF;
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	font-size: 1.5em;
+}
+
+.scoreposition {
+	font-family: 'Hind', sans-serif;
+	color: #FFFFFF;
+	position: absolute;
+	left: 5px;
+	font-size: 3em;
+}
+
+.logo {
+	position: absolute;
+	top: 5px;
+	left: 155px;
+	z-index: 10;
+	height: 4em;
+	width: 4em;
 }
 
 @media (min-width:525px) {
 	.heading {
 		font-weight: 100;
-		font-size: 39px;
+		font-size: 33px;
 	}
 }
 
@@ -59,5 +125,11 @@ html, body, #map-canvas {
 	}
 	.scoreboard {
 		top: 49px;
+		height: inherit - 49px; /*fix this*/
+	}
+	.logo {
+		left: 90px;
+		height: 2.5em;
+		width: 2.5em;
 	}
 }

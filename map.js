@@ -225,6 +225,30 @@ function drawCircles(data)
         radius: 1500
     });
   circleArr.push(circle);
+
+  var circle = new google.maps.Circle({
+      strokeColor: 'orange',
+        strokeOpacity: 0.8,
+        strokeWeight: 1.5,
+        fillColor: 'orange',
+        fillOpacity: 0.6,
+        map: map,
+        center: {lat: 30.4790, lng: -84.2843},
+        radius: 1200
+    });
+  circleArr.push(circle);
+
+  var circle = new google.maps.Circle({
+      strokeColor: 'orange',
+        strokeOpacity: 0.8,
+        strokeWeight: 1.5,
+        fillColor: 'orange',
+        fillOpacity: 0.6,
+        map: map,
+        center: {lat: 30.4190, lng: -84.3143},
+        radius: 1600
+    });
+  circleArr.push(circle);
 }
 
 //set header width
@@ -242,7 +266,6 @@ headersize();
 //set header to width of window on resize
 window.onresize = function(event) {
   headersize();
-  //changescoreboard();
 }
 
 function scoreboardsize() {
@@ -257,3 +280,41 @@ function scoreboardsize() {
 }
 
 scoreboardsize();
+
+
+var scores = {
+  arr: [
+    {
+      name: 'Jack',
+      score: '9001'
+    },
+    {
+      name: 'Bill Nye',
+      score: '8960'
+    },
+    {
+      name: 'George Washington',
+      score: '8756'
+    }
+  ]
+};
+
+var board = document.getElementById("scoreboard");
+console.log(scores.arr[0].name);
+
+//create scoreboxs
+//add in place number
+for(var i=0; i<scores.arr.length; i++) {
+  var j = i + 1;
+  var divString = '<div class="scorebox" id="scorebox-' + i + '"></div>';
+  var scoreName = '<span class="scorename">' + scores.arr[i].name + '</span>';
+  var scorePoints = '<span class="scorepoints">' + scores.arr[i].score + '</span>';
+  var scorePosition = '<span class="scoreposition">' + j + '</span>';
+
+  board.innerHTML += divString;
+  var classString = 'scorebox-' + i;
+  var scorebox = document.getElementById(classString);
+  scorebox.innerHTML += scoreName;
+  scorebox.innerHTML += scorePoints;
+  scorebox.innerHTML += scorePosition;
+}
